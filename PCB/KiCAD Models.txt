@@ -1,0 +1,4 @@
+Device        Footprint                        Site
+==================================================
+ATMEGA328p    32TQFP		https://www.snapeda.com/parts/ATMEGA328P-ANR/Microchip%20Technology/view-part/?ref=aw&t=atmega-328p&con_ref=None
+******************************************************************
