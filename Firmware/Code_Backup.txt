@@ -1,0 +1,32 @@
+// Home Screen 
+
+if(gui.home_screen_status && gui.ok_btn)
+  {
+    gui.ok_btn =0;
+    lcd_home();
+  }
+if(gui.setup_screen_status && gui.up_btn)
+  {
+    gui.setup_screen_status = 0;
+    gui.up_btn = 0;
+    lcd_setup();
+  }
+
+
+
+//  Setup screen menu select 
+ if(gui.up_btn && (gui.home_screen_status == 0))
+    gui.setup_screen_status =1;
+
+ if((gui.menu_pos == 0) && gui.ok_btn)
+    {
+      gui.menu_pos = 1;
+      gui.ok_btn = 0; // Close the ok btn
+      lcd_setup();
+    }
+ if((gui.menu_pos == 1) && gui.up_btn)
+    {
+      gui.menu_pos = 2;
+      gui.up_btn = 0; // Close the ok btn
+      lcd_setup();
+    }
