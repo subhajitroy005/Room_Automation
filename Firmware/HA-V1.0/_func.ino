@@ -278,9 +278,7 @@ unsigned char motor_start()// On the motor
   delay(1000);
   unsigned char val;
   val = digitalRead(SCAN);
-  Serial.print("Start : ");
-  Serial.println(val);
-  return val;
+  return ~(val);
 }
 unsigned char motor_stop() // Off the motor
 {
@@ -288,7 +286,5 @@ unsigned char motor_stop() // Off the motor
   delay(1000);
   unsigned char val;
   val = digitalRead(SCAN);
-  Serial.print("Stop : ");
-  Serial.println(val);
-  return val;
+  return ~(val);
 }

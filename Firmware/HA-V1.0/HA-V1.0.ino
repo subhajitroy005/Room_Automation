@@ -72,7 +72,6 @@ void setup()
    gui.set_btn =0;
    gui.setup_status =0;
 
-  Serial.begin(115200);
   pinMode(OK_BTN,INPUT);
   pinMode(UP_BTN,INPUT);
   pinMode(DOWN_BTN,INPUT);
@@ -103,9 +102,9 @@ void setup()
 
   //Check Rleay
   if(digitalRead(SCAN))
-    motor.relay_safe_status = 0;
-  else
     motor.relay_safe_status = 1;
+  else
+    motor.relay_safe_status = 0;
    
   lcd_home();
 }

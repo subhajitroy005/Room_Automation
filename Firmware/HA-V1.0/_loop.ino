@@ -159,9 +159,7 @@ void loop()
            motor.relay_safe_status = 1;
         else
            motor.relay_safe_status = 0;
-                    Serial.println(motor.motor_run_status);
-         Serial.println(motor.relay_safe_status);
-        lcd_home();
+           lcd_home();
       }
 
     }
@@ -169,7 +167,7 @@ void loop()
     {
       timer_1 = 0;
       motor_timer_start = 0;
-      if (!motor_stop())
+      if (motor_stop())
          motor.relay_safe_status = 1;
       else
          motor.relay_safe_status = 0;
@@ -186,7 +184,7 @@ void loop()
   {
     if ((millis() - timer_1) > time_index) // Stop the motor
     {
-      if (!motor_stop())
+      if (motor_stop())
         motor.relay_safe_status = 1;
       else 
         motor.relay_safe_status = 0;
@@ -197,17 +195,14 @@ void loop()
       motor.timer_counter = 0;
       motor.start_btn_state = 0; // off the start buttion state
       lcd_home();
-      Serial.println("Motor Toinmer off");
     }
     else // gui update
     {
       if ((millis() - millis_count) > 60000) // every 1 min
       {
-        Serial.print("x");
         millis_count = millis();
         motor.timer_counter++;
         lcd_home();
-        Serial.println(millis_count);
       }
     }
   }
